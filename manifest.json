@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "🛡️ Deep Focus Shield",
+  "version": "1.0.0",
+  "description": "SNS依存防止のために、短時間で消費される中毒性コンテンツを自動的にブロックし、深い集中力を保つことをサポートします。",
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://www.tiktok.com/*",
+    "https://tiktok.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": ["youtube-content.js"],
+      "css": ["youtube-style.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ],
+      "js": ["twitter-content.js"],
+      "css": ["twitter-style.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

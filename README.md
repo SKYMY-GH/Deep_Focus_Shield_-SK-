@@ -1,67 +1,80 @@
-# Deep Focus Shield 
+# 🛡️ Deep Focus Shield
 
-**——消費する側で終わるか、創造する側へ回るか。**
+SNS依存防止のために、短時間で消費される中毒性コンテンツを自動的にブロックし、深い集中力を保つことをサポートします
 
-## 【失われた時間とクリエイティビティ】
+## 機能
 
-「少しだけ休憩しよう」と思って開いたYouTubeやTwitter。気がつけば1時間が経過し、頭の中は他人の意見やどうでもいいゴシップで埋め尽くされている——。
+### 共通機能（すべてのサイトに適用）
+- ✅ グレースケールモード（色彩による脳への報酬刺激をカット）
+- ✅ 曜日・時間帯による制限（複数時間帯設定可能）
+- ✅ 常時ON機能
+- ✅ ダークモード対応
 
-そんな経験はありませんか？
+### YouTube
+- ✅ Shortsの非表示
+- ✅ ホーム画面を登録チャンネルへリダイレクト
+- ✅ 関連動画の非表示（動画再生ページ右側）
+- ✅ コメントを非表示
 
-その失われた1時間は、本来ならあなたの作品を磨き、スキルを高め、未来を変えるために使われるはずだった時間です。
-クリエイティブな活動には、脳の「余白」が必要です。しかし、現代のSNSはその余白を容赦なく塗りつぶしに来ます。
+### Twitter/X
+- ✅ デフォルトのTLを「フォロー中」に変更
+- ✅ おすすめ（For you）タブの非表示
+- ✅ トレンドの非表示（デフォルトON）
+- ✅ 動画の自動再生停止
 
-この拡張機能は、情報の洪水をせき止める「ダム」であり、あなたの時間を守るための「盾」です。
+### TikTok
+- ✅ サイト全体をブロック（デフォルトON）
 
----
+## ファイル構成
 
-## 【なぜ、私たちはSNSを閉じられないのか？】
+```
+deep-focus-shield/
+├── manifest.json
+├── popup.html
+├── popup.css
+├── popup.js
+├── background.js
+├── youtube-content.js
+├── youtube-style.css
+├── twitter-content.js
+├── twitter-style.css
+├── icon16.png
+├── icon48.png
+└── icon128.png
+```
 
-「意志が弱いから」ではありません。あなたの脳がハックされているからです。特にショート動画や無限スクロールには、最新の脳科学が悪用されています。
+## ライセンス
 
-1. **脳の「報酬系」をハックするドーパミン中毒**
-   数秒で次々と新しい刺激が得られるショート動画の構造は、スロットマシーンと同様です。脳内で「快楽」と「期待」を司るドーパミンが過剰に分泌され続けます。これが続くと、地道で時間のかかる活動（読書、勉強、制作）への耐性が失われ、「待てない脳」になってしまいます。
+MIT License
 
-2. **アルゴリズムによる「やめられない」仕組み**
-   プラットフォームのAIは、あなたが「あと1本だけ」を見たくなる動画を正確にレコメンドします。これにより、自分で視聴時間をコントロールできなくなる「行動嗜癖（依存）」の状態に陥りやすくなります。
+Copyright (c) 2025 SKYMY-Workshop
 
-3. **集中力の分断と低下**
-   派手な色彩と激しいカット割りは脳を過剰刺激します。一部の研究では、ショート動画の視聴時間が長いほど注意力が低下するという負の相関も示唆されています。
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
----
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## 【DFSの機能と戦略】
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-『Deep Focus Shield』は、SNSの利便性を残しつつ、これらの「中毒性（ドーパミン・トリガー）」だけをピンポイントで無効化する唯一の武器です。
+## デフォルト設定について
 
-### 戦略1：情報の「受動摂取」を遮断（レコメンド・トレンドの非表示）
-アルゴリズムが勧める情報を無自覚に浴びることは、思考停止への近道です。
-* **ホーム画面無効化・トレンド非表示**： SNSを「受動的なエンタメ装置」から、自ら情報を探しに行く「能動的なツール」へと強制的に書き換えます。
+最大限の効果を得るため、以下の機能がデフォルトでONになっています：
+- 共通機能: 常にON（全機能を常時有効化）
+- YouTube: Shorts非表示、ホームリダイレクト、関連動画非表示、コメント非表示
+- Twitter: トレンド非表示
+- TikTok: サイトブロック
 
-### 戦略2：視覚的刺激の無効化（Shorts非表示・グレースケール）
-脳を興奮させる視覚情報を物理的にカットし、深い思考に必要な「静寂」を取り戻します。
-* **Shorts・自動再生の排除**： 意図しない「時間溶かし」コンテンツへの接触事故をゼロにします。
-* **グレースケール**： 派手な色を隠すことで、冷静な情報収集を可能にします。
+## 更新履歴
 
-### 戦略3：物理的な強制力（時間指定）
-意志力には限界があります。だからこそ、システムで対抗します。
-* **時間指定機能**： 指定した集中したい時間帯にシールドを有効化し、集中を守ります。
-
----
-
-## 【SNSに支配されず、「道具」として使いこなす】
-
-重要なのは、SNSを完全に悪として切り捨てることではなく、**「いかにコントロール権を自分に取り戻すか」**です。
-
-問題は視聴時間そのものよりも、「意図せず見てしまっている状態」にあります。
-「見ない」のではなく「賢く使う」。
-情報の濁流から身を守り、あなたの内側にある創造性を解き放つために。DFSは、そのための必須拡張機能です。
-
----
-
-## インストール方法
-
-1. このリポジトリをダウンロード（Code -> Download ZIP）して解凍
-2. Chromeブラウザのアドレスバーに `chrome://extensions/` と入力
-3. 右上の「デベロッパーモード」をONにする
-4. 「パッケージ化されていない拡張機能を読み込む」をクリックし、解凍したフォルダを選択
+- v1.0.0 初回リリース

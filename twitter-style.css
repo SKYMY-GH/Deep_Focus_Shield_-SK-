@@ -1,0 +1,142 @@
+/* Twitter/X用のスタイル */
+
+/* グレースケールモード（独立して動作、position問題を回避） */
+body.acis-grayscale main {
+  filter: grayscale(100%) !important;
+}
+
+/* おすすめを非表示 */
+body.acis-twitter-recommendations-hidden {
+  /* For you タブ */
+  [role="tab"]:has-text("For you"),
+  [role="tab"]:has-text("おすすめ") {
+    display: none !important;
+  }
+  
+  /* おすすめユーザー */
+  [aria-label*="Who to follow"],
+  [aria-label*="おすすめユーザー"],
+  [data-testid="UserCell"] {
+    display: none !important;
+  }
+  
+  /* おすすめトピック */
+  [aria-label*="Topics"],
+  [aria-label*="トピック"] {
+    display: none !important;
+  }
+  
+  /* プロモーション */
+  article[data-testid="tweet"]:has(svg path[d*="M19.498"]) {
+    display: none !important;
+  }
+}
+
+/* トレンドを非表示 - 右側のサイドバーのみ */
+body.acis-twitter-trends-hidden {
+  /* 右側サイドバー内のトレンドセクションのみ非表示 */
+  [data-testid="sidebarColumn"] [aria-label*="Trending"],
+  [data-testid="sidebarColumn"] [aria-label*="トレンド"],
+  [data-testid="sidebarColumn"] [data-testid="trend"],
+  [data-testid="sidebarColumn"] section:has([aria-label*="Trending"]),
+  [data-testid="sidebarColumn"] aside:has([aria-label*="トレンド"]) {
+    display: none !important;
+  }
+  
+  /* 右側サイドバー内のWhat's happeningセクションのみ */
+  [data-testid="sidebarColumn"] [aria-label*="happening"],
+  [data-testid="sidebarColumn"] section:has([aria-label*="happening"]) {
+    display: none !important;
+  }
+  
+  /* 右側サイドバー内のニュース・おすすめセクション */
+  [data-testid="sidebarColumn"] [aria-label*="News"],
+  [data-testid="sidebarColumn"] [aria-label*="ニュース"],
+  [data-testid="sidebarColumn"] [aria-label*="follow"],
+  [data-testid="sidebarColumn"] [aria-label*="おすすめ"] {
+    display: none !important;
+  }
+}
+
+/* 自動再生停止のための視覚的フィードバック */
+body.acis-twitter-active {
+  /* 動画に再生ボタンオーバーレイを追加 */
+  video {
+    cursor: pointer !important;
+    position: relative !important;
+  }
+  
+  video::before {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: white;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  video:not([paused])::before {
+    display: none;
+  }
+}
+
+/* 全体的な調整 */
+body.acis-twitter-active {
+  /* 不要な要素を非表示 */
+  [aria-label*="Timeline: Trending now"],
+  [aria-label*="タイムライン: トレンド"] {
+    display: none !important;
+  }
+  
+  /* Spaces */
+  [aria-label*="Spaces"],
+  [data-testid="pillLabel"]:has-text("Spaces") {
+    display: none !important;
+  }
+  
+  /* Live */
+  [aria-label*="Live"],
+  [data-testid="pillLabel"]:has-text("Live"),
+  [data-testid="pillLabel"]:has-text("ライブ") {
+    display: none !important;
+  }
+}
+
+/* Moments / モーメント を非表示 */
+body.acis-twitter-active {
+  a[href*="/i/moments"],
+  [aria-label*="Moments"],
+  [aria-label*="モーメント"] {
+    display: none !important;
+  }
+}
+
+/* Lists suggestions を非表示 */
+body.acis-twitter-active {
+  [aria-label*="Lists"],
+  [data-testid="List"] {
+    /* リスト提案のみ非表示、ユーザーのリストは残す */
+  }
+}
+
+/* 広告を非表示 */
+body.acis-twitter-active {
+  /* プロモーションツイート */
+  article:has(span:has-text("Promoted")),
+  article:has(span:has-text("プロモーション")),
+  div[data-testid="placementTracking"] {
+    display: none !important;
+  }
+}
+
+/* Fleetを非表示 (もし存在する場合) */
+body.acis-twitter-active {
+  [aria-label*="Fleets"],
+  [data-testid="fleet"] {
+    display: none !important;
+  }
+}

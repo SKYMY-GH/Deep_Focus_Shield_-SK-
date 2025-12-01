@@ -1,0 +1,75 @@
+/* YouTube用のスタイル */
+
+/* グレースケールモード（完全に独立、他の要素に影響しない） */
+body.acis-grayscale #movie_player video,
+body.acis-grayscale ytd-thumbnail img,
+body.acis-grayscale yt-image img,
+body.acis-grayscale #avatar img {
+  filter: grayscale(100%) !important;
+}
+
+/* Shorts非表示（独立） */
+body.acis-youtube-shorts-hidden a[title="Shorts"],
+body.acis-youtube-shorts-hidden ytd-guide-entry-renderer a[title="Shorts"],
+body.acis-youtube-shorts-hidden ytd-mini-guide-entry-renderer a[title="Shorts"],
+body.acis-youtube-shorts-hidden ytd-rich-shelf-renderer[is-shorts],
+body.acis-youtube-shorts-hidden ytd-reel-shelf-renderer,
+body.acis-youtube-shorts-hidden [aria-label*="Shorts"],
+body.acis-youtube-shorts-hidden [title="Shorts"],
+body.acis-youtube-shorts-hidden ytd-video-renderer a[href*="/shorts/"],
+body.acis-youtube-shorts-hidden ytd-grid-video-renderer a[href*="/shorts/"],
+body.acis-youtube-shorts-hidden ytd-rich-item-renderer:has(a[href*="/shorts/"]) {
+  display: none !important;
+}
+
+/* 関連動画非表示（独立） */
+body.acis-youtube-related-hidden #secondary,
+body.acis-youtube-related-hidden #secondary-inner,
+body.acis-youtube-related-hidden #related,
+body.acis-youtube-related-hidden ytd-watch-next-secondary-results-renderer,
+body.acis-youtube-related-hidden #items ytd-compact-video-renderer,
+body.acis-youtube-related-hidden #items ytd-compact-radio-renderer,
+body.acis-youtube-related-hidden #items ytd-compact-playlist-renderer,
+body.acis-youtube-related-hidden ytd-watch-flexy #secondary {
+  display: none !important;
+}
+
+/* プライマリを全幅に */
+body.acis-youtube-related-hidden #primary,
+body.acis-youtube-related-hidden #primary-inner,
+body.acis-youtube-related-hidden ytd-watch-flexy #primary {
+  max-width: 100% !important;
+  width: 100% !important;
+  flex: 1 1 100% !important;
+}
+
+body.acis-youtube-related-hidden #columns #primary {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* コメント非表示（独立） */
+body.acis-youtube-comments-hidden #comments,
+body.acis-youtube-comments-hidden ytd-comments,
+body.acis-youtube-comments-hidden ytd-comments#comments,
+body.acis-youtube-comments-hidden #comment-section,
+body.acis-youtube-comments-hidden .ytd-comments,
+body.acis-youtube-comments-hidden ytd-comment-thread-renderer,
+body.acis-youtube-comments-hidden ytd-comment-renderer,
+body.acis-youtube-comments-hidden ytd-comment-simplebox-renderer,
+body.acis-youtube-comments-hidden ytd-comments-header-renderer,
+body.acis-youtube-comments-hidden #simple-box.ytd-comments-header-renderer,
+body.acis-youtube-comments-hidden ytd-item-section-renderer#sections,
+body.acis-youtube-comments-hidden ytd-live-chat-frame,
+body.acis-youtube-comments-hidden #chat,
+body.acis-youtube-comments-hidden #chat-container {
+  display: none !important;
+}
+
+/* グレースケール用の追加スタイル（他機能と干渉しない） */
+body.acis-grayscale video,
+body.acis-grayscale img,
+body.acis-grayscale svg,
+body.acis-grayscale ytd-thumbnail {
+  filter: grayscale(100%) !important;
+}

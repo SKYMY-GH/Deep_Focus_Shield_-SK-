@@ -1,0 +1,427 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-gradient-start: #667eea;
+  --bg-gradient-end: #764ba2;
+  --bg-main: white;
+  --bg-section: #f9f9f9;
+  --bg-hover: #f5f5f5;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --border-color: #e5e5e5;
+  --border-hover: #667eea;
+  --toggle-off: #ccc;
+  --toggle-on: #667eea;
+}
+
+body {
+  width: 480px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  --bg-main: #1a1a1a;
+  --bg-section: #2a2a2a;
+  --bg-hover: #3a3a3a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --border-color: #444;
+  --border-hover: #667eea;
+  --toggle-off: #555;
+}
+
+.container {
+  background: var(--bg-main);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+  position: relative;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: var(--bg-gradient-start);
+  font-weight: 700;
+}
+
+.dark-mode-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  background: var(--bg-hover);
+}
+
+.platform-section {
+  margin-bottom: 25px;
+  background: var(--bg-section);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.common-section {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.platform-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.platform-header h2 {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.help-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--bg-gradient-start);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  cursor: help;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.help-icon:hover {
+  transform: scale(1.1);
+  background: var(--bg-gradient-end);
+}
+
+.schedule-section {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.days-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.days-selector label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  background: var(--bg-main);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.days-selector label:hover {
+  background: var(--bg-hover);
+}
+
+.days-selector input[type="checkbox"] {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.time-slots {
+  margin-bottom: 10px;
+}
+
+.time-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.time-selector span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.time-selector input[type="time"] {
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.remove-time-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.remove-time-btn:hover {
+  background: #ff0000;
+}
+
+.add-time-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 6px 12px;
+  background: var(--bg-gradient-start);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.add-time-btn:hover {
+  background: var(--bg-gradient-end);
+}
+
+.always-on {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.always-on label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 12px;
+  background: var(--bg-main);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.always-on label:hover {
+  background: var(--bg-hover);
+}
+
+.always-on input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.always-on span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.toggle-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toggle-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-item label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 12px;
+  background: var(--bg-main);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.toggle-item label:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.toggle-item span:first-child {
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.toggle-item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-indicator {
+  width: 44px;
+  height: 24px;
+  background: var(--toggle-off);
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.toggle-indicator::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-item input[type="checkbox"]:checked ~ .toggle-indicator {
+  background: var(--toggle-on);
+}
+
+.toggle-item input[type="checkbox"]:checked ~ .toggle-indicator::after {
+  transform: translateX(20px);
+}
+
+.status {
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: none;
+}
+
+.status.show {
+  display: block;
+}
+
+.status.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ツールチップのホバー効果（修正版） */
+.help-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--bg-gradient-start);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  cursor: help;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.help-icon:hover {
+  transform: scale(1.1);
+  background: var(--bg-gradient-end);
+}
+
+/* ツールチップはtitle属性で表示（CSSツールチップを削除） */
+
+/* 時間制限の折りたたみ機能 */
+.schedule-header {
+  cursor: pointer;
+  padding: 10px;
+  background: var(--bg-hover);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-header:hover {
+  background: var(--bg-section);
+}
+
+.schedule-title {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.collapse-icon {
+  transition: transform 0.3s ease;
+}
+
+.schedule-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 500px;
+}
+
+.schedule-content.collapsed {
+  max-height: 0;
+}
+
+.schedule-header.collapsed .collapse-icon {
+  transform: rotate(-90deg);
+}
+
+/* スクロールバーのスタイル */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-section);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

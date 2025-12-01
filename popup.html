@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Focus Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🛡️ Deep Focus Shield</h1>
+      <button id="dark-mode-toggle" class="dark-mode-btn" title="ダークモード切替">🌙</button>
+    </div>
+
+    <!-- 共通機能 -->
+    <div class="platform-section common-section">
+      <div class="platform-header">
+        <h2>【共通機能】</h2>
+        <span class="help-icon" title="すべてのサイトに適用される機能">?</span>
+      </div>
+      
+      <p style="font-size: 11px; color: var(--text-secondary); margin: 5px 10px 10px; line-height: 1.4;">
+        ※「常にON」または設定した時間帯のみ、下記の機能が有効になります
+      </p>
+      
+      <div class="schedule-section">
+        <div class="schedule-header" data-platform="common">
+          <span class="schedule-title">シールドを有効にする時間帯 <span class="collapse-icon">▼</span></span>
+        </div>
+        <div class="schedule-content" data-platform="common">
+          <div class="days-selector">
+            <label><input type="checkbox" data-platform="common" data-day="0"> 日</label>
+            <label><input type="checkbox" data-platform="common" data-day="1"> 月</label>
+            <label><input type="checkbox" data-platform="common" data-day="2"> 火</label>
+            <label><input type="checkbox" data-platform="common" data-day="3"> 水</label>
+            <label><input type="checkbox" data-platform="common" data-day="4"> 木</label>
+            <label><input type="checkbox" data-platform="common" data-day="5"> 金</label>
+            <label><input type="checkbox" data-platform="common" data-day="6"> 土</label>
+          </div>
+          
+          <div class="time-slots" id="common-time-slots">
+            <div class="time-selector">
+              <span>有効時間：</span>
+              <input type="time" class="start-time" value="07:00">
+              <span>～</span>
+              <input type="time" class="end-time" value="12:00">
+              <button class="remove-time-btn" style="display:none;">✕</button>
+            </div>
+          </div>
+          <button class="add-time-btn" data-platform="common">+ 有効時間を追加</button>
+        </div>
+        
+        <div class="always-on">
+          <label>
+            <input type="checkbox" id="common-always-on" checked>
+            <span>常にON</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="toggle-section">
+        <div class="toggle-item">
+          <label>
+            <span>グレースケールモード</span>
+            <input type="checkbox" id="common-grayscale">
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 色彩による脳への報酬刺激をカット。「画面がつまらない」と感じさせることで、長時間の閲覧を防ぎます。">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube設定 -->
+    <div class="platform-section">
+      <div class="platform-header">
+        <h2>【YouTube】</h2>
+      </div>
+      
+      <div class="toggle-section">
+        <div class="toggle-item">
+          <label>
+            <span>Shorts 非表示</span>
+            <input type="checkbox" id="youtube-hide-shorts" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 最も危険な時間泥棒です。短い時間で次々と新しい刺激や快感が得られる設計により、脳内でドーパミンが過剰に分泌させるショート動画を非表示にします。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>ホーム画面無効化 (登録へリダイレクト)</span>
+            <input type="checkbox" id="youtube-redirect-home" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 アルゴリズムが仕掛ける「おすすめの罠」を回避。受動的なザッピングを封じ、能動的な利用へと誘導します。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>再生画面右側関連動画非表示</span>
+            <input type="checkbox" id="youtube-hide-related" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 「無限の連鎖」への入り口を塞ぎます。今見ている動画だけに集中させます。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>コメントを非表示</span>
+            <input type="checkbox" id="youtube-hide-comments" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 他人の感情や無責任な意見は、あなたの思考にとってノイズでしかありません。コンテンツの中身だけに向き合います。">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Twitter設定 -->
+    <div class="platform-section">
+      <div class="platform-header">
+        <h2>【Twitter】</h2>
+      </div>
+      
+      <div class="toggle-section">
+        <div class="toggle-item">
+          <label>
+            <span>デフォルトのTLを「フォロー中」に変更</span>
+            <input type="checkbox" id="twitter-default-following" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 x.com/homeを開いたときに自動的に「フォロー中」タブを表示します。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>おすすめタブ非表示</span>
+            <input type="checkbox" id="twitter-hide-recommendations">
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 フォローしていない他人の喧噪をシャットアウト。タイムラインを「情報の取得」という本来の目的に絞ります。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>トレンド非表示</span>
+            <input type="checkbox" id="twitter-hide-trends" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 精神を消耗させる炎上やゴシップを視界から消去。感情の安定と、創作への静かな意欲を守ります。">?</span>
+        </div>
+        
+        <div class="toggle-item">
+          <label>
+            <span>動画の自動再生停止</span>
+            <input type="checkbox" id="twitter-stop-autoplay">
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 動くものは無意識に目に入ってしまいます。視覚的な「引っかかり」をなくし、スムーズな離脱を促します。">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TikTok設定 -->
+    <div class="platform-section">
+      <div class="platform-header">
+        <h2>【TikTok】</h2>
+      </div>
+      
+      <div class="toggle-section">
+        <div class="toggle-item">
+          <label>
+            <span>TikTok サイトブロック</span>
+            <input type="checkbox" id="tiktok-block" checked>
+            <span class="toggle-indicator"></span>
+          </label>
+          <span class="help-icon" title="💡 このサイトは脳の報酬系を刺激し、ドーパミンの過剰分泌を引き起こし、依存性を極限まで高めるよう設計されています。クリエイティビティを守るため、アクセスそのものを遮断します。">?</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status" id="status"></div>
+    
+    <div class="notice" style="margin-top: 20px; padding: 10px; background: var(--bg-hover); border-radius: 5px; font-size: 12px; color: var(--text-secondary); text-align: center;">
+      ※トグルを変更直後正常に適応されない場合はページをリロードするかChromeを再起動してください
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
