@@ -25,6 +25,18 @@ SNS依存防止のために、短時間で消費される中毒性コンテン�
 ### TikTok
 - ✅ サイト全体をブロック（デフォルトON）
 
+## 🔽 Install / ダウンロード
+
+👉 最新版はこちら：
+https://github.com/SKYMY-Workshop/Deep_Focus_Shield_-SK-/releases
+
+※ zip をダウンロード → Chrome拡張ページへドラッグ＆ドロップ
+
+## 🛠️ Support / サポート
+
+不具合報告・機能提案はこちら：
+https://github.com/SKYMY-Workshop/Deep_Focus_Shield_-SK-/issues
+
 ## ファイル構成
 
 ```
@@ -43,30 +55,6 @@ deep-focus-shield/
 └── icon128.png
 ```
 
-## ライセンス
-
-MIT License
-
-Copyright (c) 2025 SKYMY-Workshop
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 ## デフォルト設定について
 
 最大限の効果を得るため、以下の機能がデフォルトでONになっています：
@@ -76,5 +64,8 @@ SOFTWARE.
 - TikTok: サイトブロック
 
 ## 更新履歴
+- v1.0.0-beta 初回プレリリース
 
-- v1.0.0 初回リリース
+## 📜 License
+
+MIT License. 詳細は [LICENSE](./LICENSE) を参照してください。
