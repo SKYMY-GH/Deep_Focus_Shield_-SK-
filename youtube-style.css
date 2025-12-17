@@ -1,6 +1,6 @@
 /* YouTube用のスタイル */
 
-/* グレースケールモード（完全に独立、他の要素に影響しない） */
+/* グレースケールモード */
 body.acis-grayscale #movie_player video,
 body.acis-grayscale ytd-thumbnail img,
 body.acis-grayscale yt-image img,
@@ -8,7 +8,7 @@ body.acis-grayscale #avatar img {
   filter: grayscale(100%) !important;
 }
 
-/* Shorts非表示（独立） */
+/* Shorts非表示 */
 body.acis-youtube-shorts-hidden a[title="Shorts"],
 body.acis-youtube-shorts-hidden ytd-guide-entry-renderer a[title="Shorts"],
 body.acis-youtube-shorts-hidden ytd-mini-guide-entry-renderer a[title="Shorts"],
@@ -22,7 +22,7 @@ body.acis-youtube-shorts-hidden ytd-rich-item-renderer:has(a[href*="/shorts/"]) 
   display: none !important;
 }
 
-/* 関連動画非表示（独立） */
+/* 関連動画非表示 */
 body.acis-youtube-related-hidden #secondary,
 body.acis-youtube-related-hidden #secondary-inner,
 body.acis-youtube-related-hidden #related,
@@ -48,7 +48,7 @@ body.acis-youtube-related-hidden #columns #primary {
   min-width: 0 !important;
 }
 
-/* コメント非表示（独立） */
+/* コメント非表示 */
 body.acis-youtube-comments-hidden #comments,
 body.acis-youtube-comments-hidden ytd-comments,
 body.acis-youtube-comments-hidden ytd-comments#comments,
@@ -66,7 +66,51 @@ body.acis-youtube-comments-hidden #chat-container {
   display: none !important;
 }
 
-/* グレースケール用の追加スタイル（他機能と干渉しない） */
+/* ==========================================================================
+   ★ 動画終了後の黒帯オーバーレイ（シークバー除外版）
+   ========================================================================== */
+
+/* 1. 既存のエンドスクリーン要素は、念のため透明にしてクリック不可にする */
+body.acis-youtube-endscreen-hidden .html5-endscreen,
+body.acis-youtube-endscreen-hidden .ytp-endscreen-content,
+body.acis-youtube-endscreen-hidden .videowall-endscreen {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2. 動画終了時、プレイヤー全体を黒い膜で覆う（z-index: 2000） */
+body.acis-youtube-endscreen-hidden #movie_player.ended-mode::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000 !important;
+  z-index: 2000 !important; /* エンドスクリーンより手前 */
+  pointer-events: auto; /* 誤クリック防止 */
+}
+
+/* 3. ただし「コントロールバー（シークバー）」は黒い膜より手前に表示する（z-index: 2001） */
+body.acis-youtube-endscreen-hidden #movie_player.ended-mode .ytp-chrome-bottom {
+  z-index: 2001 !important;
+  opacity: 1 !important;        /* YouTubeが自動で消すのを防ぐ */
+  display: block !important;    /* 強制表示 */
+  visibility: visible !important;
+  pointer-events: auto !important; /* 操作可能にする */
+}
+
+/* 4. シークバーのツールチップ（時間表示）も見えるようにする */
+body.acis-youtube-endscreen-hidden #movie_player.ended-mode .ytp-tooltip {
+  z-index: 2002 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* グレースケール用の追加スタイル */
 body.acis-grayscale video,
 body.acis-grayscale img,
 body.acis-grayscale svg,
